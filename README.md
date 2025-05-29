@@ -8,20 +8,20 @@
 
 ## Sign in to Azure
 
-before you run the functions in the links above, you need to sign in to Azure. To do that, install the Azure exetenston and click **Sign in to Azure** in the **Azure Resources** under **Resources**.
+before you run the functions in the links above, you need to sign in to Azure. To do that, install the Azure extension and click **Sign in to Azure** in the **Azure Resources** under **Resources**.
 
-## Creating a Azure Function for each resoruce
+## Creating a Azure Function for each resource
 
 ### Binding Blob Storage
 
 Before you start running, you need to make a function app for each binding application. Press F1 to open the command palette and select **Azure Functions: Create Function App in Azure** and then fill out the following detail:
 
-- **Subscription**: the subscription you usally you use
+- **Subscription**: the subscription you usually you use
 - **name**: blobstoragebunding or sqldatabasebinding
 - **Location**: East US
 - **runtime stack**: newest python version (Python 3.12)
 
-Wait until each of the individual resoruces had been created that are displayed in AZURE: ACTIVITY LOG
+Wait until each of the individual resources had been created that are displayed in AZURE: ACTIVITY LOG
 
 After that it will show you all of the resources created. Start running the functions 
 
@@ -35,7 +35,7 @@ Download `Microsoft Azure Storage Explore` in this link: https://storageexplorer
 
 After downloading, open the application and click the person icon and click the Sign in with Azure... link. 
 
-In the **Connect** window pick **Add an Azure account** and have your Azure environment your enviroment and then sign in. 
+In the **Connect** window pick **Add an Azure account** and have your Azure environment your environment and then sign in. 
 
 Then pick your subscription and select **Open Explorer**
 
@@ -61,7 +61,7 @@ Now we need to run the SQL Queue binding function in the other repo.
 
 In Azure Portal, open **Azure SQL** and select `Single database` under Resource type and select `Create` under **SQL Databases**. Fill out the detail for the project
 
-- **Subscription**: (your subcription)
+- **Subscription**: (your subscription)
 - **Resource group**: (different resource group from the function group)
 - **Database name**: mySampleDatabase
 - **Server**:
@@ -79,7 +79,7 @@ After filling out the details, select `Create` in the `Review + create` page.
 
 After the SQL database is deployed, get the connection string under **ADO.NET (SQL authentication)** and store it somewhere.
 
-After that, go the the Query editor under the database blade and pastes
+After that, go the Query editor under the database blade and pastes
 
 ```
 CREATE TABLE dbo.ToDo (
@@ -108,9 +108,9 @@ After that press F1 again and run `Azure Functions: Download Remote Settings...`
 
 #### Running your function
 
-Just like in the blob storage binding function, press F5 and right click `HttpExample` function under the `Local Project` section and click `Execute Function Now...`. Then enter the request body by Press `Enter` to send the request message in the function.
+Just like in the blob storage binding function, press F5 and right click `HttpTrigger1` function under the `Local Project` section and click `Execute Function Now...`. Then enter the request body by Press `Enter` to send the request message in the function.
 
-Go to the **Query editor** blade in the database resoruce in Azure portal and log in. Then select **Select Top 1000 Rows** after right click the dbo.ToDo table and check the results if there is a updated row. 
+Go to the **Query editor** blade in the database resource in Azure Portal and log in. Then select **Select Top 1000 Rows** after right click the dbo.ToDo table and check the results if there is an updated row. 
 
 #### Run again and check if the app is updated
 
@@ -122,7 +122,7 @@ Check Azure Storage Explorer to see if there is a new message in the queue. Afte
 
 ## Clean up the resources
 
-After you finnish an function application, go to the resource groups in Azure Portal and deleat each one of them to prevent addisonal costs.
+After you finish a function application, go to the resource groups in Azure Portal and delete each one of them to prevent additional costs.
 
 ## Link for demo
 
