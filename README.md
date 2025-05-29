@@ -16,10 +16,10 @@ before you run the functions in the links above, you need to sign in to Azure. T
 
 Before you start running, you need to make a function app for each binding application. Press F1 to open the command palette and select **Azure Functions: Create Function App in Azure** and then fill out the following detail:
 
-Subscription: the subscription you usally you use
-name: blobstoragebunding or sqldatabasebinding
-Location: East US
-runtime stack: newest python version (Python 3.12)
+- **Subscription**: the subscription you usally you use
+- **name**: blobstoragebunding or sqldatabasebinding
+- **Location**: East US
+- **runtime stack**: newest python version (Python 3.12)
 
 Wait until each of the individual resoruces had been created that are displayed in AZURE: ACTIVITY LOG
 
@@ -55,5 +55,76 @@ Check Azure Storage Explorer to see if there is a new message in the queue. Afte
 
 ### Binding SQL Queue
 
+Now we need to run the SQL Queue binding function in the other repo.
 
+#### Developed first single database
+
+In Azure Portal, open **Azure SQL** and select `Single database` under Resource type and select `Create` under **SQL Databases**. Fill out the detail for the project
+
+- **Subscription**: (your subcription)
+- **Resource group**: (different resource group from the function group)
+- **Database name**: mySampleDatabase
+- **Server**:
+    - **Server name**: pick a unique name
+    - **Location**: `West ES`
+    - **Authentication method**: Select SQL Server authentication
+    - **username**: (your username)
+    - **password**: (your password)
+- **Want to use SQL elastic pool**: **No**
+- **Allow Azure services and resources to access this server**: **Yes**
+
+After filling out the details, select `Create` in the `Review + create` page.
+
+#### adjusting the SQL database
+
+After the SQL database is deployed, get the connection string under **ADO.NET (SQL authentication)** and store it somewhere.
+
+After that, go the the Query editor under the database blade and pastes
+
+```
+CREATE TABLE dbo.ToDo (
+    [Id] UNIQUEIDENTIFIER PRIMARY KEY,
+    [order] INT NULL,
+    [title] NVARCHAR(200) NOT NULL,
+    [url] NVARCHAR(200) NOT NULL,
+    [completed] BIT NOT NULL
+);
+```
+
+In the query and run it to save the table named `dbo.ToDo`.
+
+In Networking blade under the Security section, click **Allow Azure services and resources to access this server** under Exceptions.
+
+#### Update your function app settings
+
+Replace the value of the `Password` with the password when making the SQL Server and copy the entire string. 
+
+Press F1 and run `Azure Functions: Add New Setting...` and fill out the following prompts: 
+
+- **name**: SqlConnectionString
+- **value for "SqlConnectionString"**: (connection string)
+
+After that press F1 again and run `Azure Functions: Download Remote Settings...` and select **Yes to all** to overwrite the existing local settings.
+
+#### Running your function
+
+Just like in the blob storage binding function, press F5 and right click `HttpExample` function under the `Local Project` section and click `Execute Function Now...`. Then enter the request body by Press `Enter` to send the request message in the function.
+
+Go to the **Query editor** blade in the database resoruce in Azure portal and log in. Then select **Select Top 1000 Rows** after right click the dbo.ToDo table and check the results if there is a updated row. 
+
+#### Run again and check if the app is updated
+
+Press F1 again to open the command palette and run `Azure Functions: Deploy to function app...`. Choose the function app you made and later select **Deploy** when you are in the redeploying process.
+
+After redeploying, run the `Execute Function Now...` command to run the function.
+
+Check Azure Storage Explorer to see if there is a new message in the queue. After that you successful run the app.
+
+## Clean up the resources
+
+After you finnish an function application, go to the resource groups in Azure Portal and deleat each one of them to prevent addisonal costs.
+
+## Link for demo
+
+(running queue message)[]
 
