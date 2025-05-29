@@ -12,8 +12,6 @@ before you run the functions in the links above, you need to sign in to Azure. T
 
 ## Creating a Azure Function for each resource
 
-### Binding Blob Storage
-
 Before you start running, you need to make a function app for each binding application. Press F1 to open the command palette and select **Azure Functions: Create Function App in Azure** and then fill out the following detail:
 
 - **Subscription**: the subscription you usually you use
@@ -24,6 +22,12 @@ Before you start running, you need to make a function app for each binding appli
 Wait until each of the individual resources had been created that are displayed in AZURE: ACTIVITY LOG
 
 After that it will show you all of the resources created. Start running the functions 
+
+### Binding Blob Storage
+
+We start runing the function to bind the blob storage but first weee need to download the function app settings
+
+First press F1 to open the command palette and run `Azure Functions: Download Remote Settings...` and Select **Yet to All** to overwrite the existing local settings
 
 #### Run blob storage binding function
 
@@ -126,5 +130,5 @@ After you finish a function application, go to the resource groups in Azure Port
 
 ## Link for demo
 
-(running queue message)[]
+(running queue message)[https://www.youtube.com/watch?v=dRtpUOPEq0A]
 
