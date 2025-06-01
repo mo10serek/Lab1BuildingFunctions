@@ -95,13 +95,15 @@ CREATE TABLE dbo.ToDo (
 );
 ```
 
-In the query and run it to save the table named `dbo.ToDo`.
+In the query and run it to save the table named `dbo.ToDo` by running it.
 
-In Networking blade under the Security section, click **Allow Azure services and resources to access this server** under Exceptions.
+In Networking blade under the Security section in the SQL server resource, click **Allow Azure services and resources to access this server** under Exceptions.
+
+Go to the Connection strings blade under Setting section in the SQL database resource and copy the connection string under **ADO.NET** (SQL authentication) and store it in some document.
 
 #### Update your function app settings
 
-Replace the value of the `Password` with the password when making the SQL Server and copy the entire string. 
+In the document, replace the value of the `Password` with the password when making the SQL Server and copy the entire string from the document. 
 
 Press F1 and run `Azure Functions: Add New Setting...` and fill out the following prompts: 
 
