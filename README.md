@@ -37,9 +37,9 @@ In order to run the blob storage binding function. First you need to start the f
 
 Download `Microsoft Azure Storage Explore` in this link: https://storageexplorer.com/.
 
-After downloading, open the application and click the person icon and click the Sign in with Azure... link. 
+After downloading, open the application and click the person icon and click the **Sign in with Azure...** link. 
 
-In the **Connect** window pick **Add an Azure account** and have your Azure environment your environment and then sign in. 
+In the **Connect** window pick **Add an Azure account** and have your Azure environment ready and then sign in. 
 
 Then pick your subscription and select **Open Explorer**
 
