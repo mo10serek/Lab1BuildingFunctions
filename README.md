@@ -75,6 +75,7 @@ In Azure Portal, open **Azure SQL** and select `Single database` under Resource 
     - **username**: (your username)
     - **password**: (your password)
 - **Want to use SQL elastic pool**: **No**
+Go to the network section next:
 - **Allow Azure services and resources to access this server**: **Yes**
 
 After filling out the details, select `Create` in the `Review + create` page.
